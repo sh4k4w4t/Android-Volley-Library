@@ -1,6 +1,5 @@
-package com.shakawat.learn_volley_android.JsonObject;
+package com.shakawat.learn_volley_android;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.LruCache;
@@ -10,16 +9,13 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 
-public class MySingleTon {
-
-    @SuppressLint("StaticFieldLeak")
-    private static MySingleTon instance;
+public class MySingleTonPattern {
+    private static MySingleTonPattern instance;
     private RequestQueue requestQueue;
-    private final ImageLoader imageLoader;
-    @SuppressLint("StaticFieldLeak")
+    private ImageLoader imageLoader;
     private static Context ctx;
 
-    private MySingleTon(Context context) {
+    private MySingleTonPattern(Context context) {
         ctx = context;
         requestQueue = getRequestQueue();
 
@@ -40,9 +36,9 @@ public class MySingleTon {
                 });
     }
 
-    public static synchronized MySingleTon getInstance(Context context) {
+    public static synchronized MySingleTonPattern getInstance(Context context) {
         if (instance == null) {
-            instance = new MySingleTon(context);
+            instance = new MySingleTonPattern(context);
         }
         return instance;
     }
@@ -63,5 +59,4 @@ public class MySingleTon {
     public ImageLoader getImageLoader() {
         return imageLoader;
     }
-
 }

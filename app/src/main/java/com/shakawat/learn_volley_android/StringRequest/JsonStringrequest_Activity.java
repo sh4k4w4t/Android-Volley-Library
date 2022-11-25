@@ -1,11 +1,9 @@
-package com.shakawat.learn_volley_android;
+package com.shakawat.learn_volley_android.StringRequest;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -14,37 +12,35 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.shakawat.learn_volley_android.JsonObject.Learn_JsonObject;
+import com.shakawat.learn_volley_android.R;
 
-public class Learn_StringRequest extends AppCompatActivity {
+public class JsonStringrequest_Activity extends AppCompatActivity {
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_learn_string_request);
+        setContentView(R.layout.activity_json_stringrequest);
+        textView= findViewById(R.id.textStringView);
+        this.setTitle("Json String Request");
 
-        TextView textView= findViewById(R.id.textView);
+        String url="https://touhidapps.com/api/demo/jsondemoapi.php?option=1";
 
-        RequestQueue requestQueue= Volley.newRequestQueue(this);
-        String url= "https://www.google.com";
+        RequestQueue queue= Volley.newRequestQueue(this);
 
         StringRequest stringRequest= new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onResponse(String response) {
-                textView.setText("Success");
+                textView.setText("Response :  "+response);
             }
         }, new Response.ErrorListener() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onErrorResponse(VolleyError error) {
-                textView.setText("Error");
+                textView.setText("Error: "+error);
             }
         });
-        requestQueue.add(stringRequest);
-    }
-
-    public void JsonObject(View view) {
-        startActivity(new Intent(getApplicationContext(), Learn_JsonObject.class));
+        queue.add(stringRequest);
     }
 }

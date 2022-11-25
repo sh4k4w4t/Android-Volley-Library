@@ -1,9 +1,10 @@
-package com.shakawat.learn_volley_android.JsonObject;
+package com.shakawat.learn_volley_android.JsonArrayRequest;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class MyJsonObject {
+public class DataModel {
+
     @SerializedName("id")
     @Expose
     private String id;
@@ -19,6 +20,17 @@ public class MyJsonObject {
     @SerializedName("baseUrl")
     @Expose
     private String baseUrl;
+
+    public DataModel() {
+    }
+
+    public DataModel(String id, String name, String details, String fileName, String baseUrl) {
+        this.id = id;
+        this.name = name;
+        this.details = details;
+        this.fileName = fileName;
+        this.baseUrl = baseUrl;
+    }
 
     public String getId() {
         return id;
@@ -57,14 +69,6 @@ public class MyJsonObject {
     }
 
     public void setBaseUrl(String baseUrl) {
-        this.baseUrl = baseUrl;
-    }
-
-    public MyJsonObject(String id, String name, String details, String fileName, String baseUrl) {
-        this.id = id;
-        this.name = name;
-        this.details = details;
-        this.fileName = fileName;
         this.baseUrl = baseUrl;
     }
 }

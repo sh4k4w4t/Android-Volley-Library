@@ -15,14 +15,28 @@
         android:theme="@style/Theme.Learn_volley_android"
         tools:targetApi="31">
         <activity
-            android:name=".JsonObject.Learn_JsonObject"
+            android:name=".JsonArrayRequest.JsonArrayRequest_Activity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Learn_StringRequest"
+            android:name=".StringRequest.JsonStringrequest_Activity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".JsonObjectRequest.JsonObjectRequest_Activity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,6 +44,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".JsonObject.Learn_JsonObject"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".JsonObject.Learn_StringRequest"
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
